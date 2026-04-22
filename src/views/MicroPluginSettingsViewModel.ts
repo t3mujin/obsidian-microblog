@@ -109,6 +109,15 @@ export class MicroPluginSettingsViewModel {
         this.plugin.saveSettings()
     }
 
+    public get categoriesPropertyName(): string {
+        return this.settings.categoriesPropertyName
+    }
+
+    public set categoriesPropertyName(value: string) {
+        this.settings.categoriesPropertyName = value
+        this.plugin.saveSettings()
+    }
+
     public get tags(): string {
         return this.settings.defaultTags
     }
