@@ -78,6 +78,7 @@ export class PublishPostViewModel implements TagSuggestionDelegate, ImageService
     private content: string
     private visibilityWrappedValue: string
     private tagsWrappedValue: string
+    private categoriesPropertyName: string
     private selectedBlogIDWrappedValue: string
     private scheduledDateWrappedValue: string
     private networkClient: NetworkClientInterface
@@ -95,6 +96,7 @@ export class PublishPostViewModel implements TagSuggestionDelegate, ImageService
         content: string,
         tags: string,
         visibility: string,
+        categoriesPropertyName: string,
         blogs: Record<string, string>,
         selectedBlogID: string,
         networkClient: NetworkClientInterface,
@@ -107,6 +109,7 @@ export class PublishPostViewModel implements TagSuggestionDelegate, ImageService
         this.content = content
         this.tagsWrappedValue = tags
         this.visibilityWrappedValue = visibility
+        this.categoriesPropertyName = categoriesPropertyName
         this.blogs = blogs
         this.selectedBlogIDWrappedValue = selectedBlogID
         this.scheduledDateWrappedValue = ''
@@ -214,7 +217,7 @@ export class PublishPostViewModel implements TagSuggestionDelegate, ImageService
 
                 this.frontmatterService.save(this.title, 'title')
                 this.frontmatterService.save(result.url, 'url')
-                this.frontmatterService.save(tags, 'tags')
+                this.frontmatterService.save(tags, this.categoriesPropertyName)
 
                 this.delegate?.publishDidSucceed(result)
             }

@@ -108,7 +108,8 @@ export class ViewModelFactory implements ViewModelFactoryInterface {
         const post = new MarkdownPost(
             frontmatterService,
             imageService,
-            markdownView
+            markdownView,
+            this.container.settings.categoriesPropertyName
         )
 
         if (post.url && post.url.length > 0) {
@@ -222,6 +223,7 @@ export class ViewModelFactory implements ViewModelFactoryInterface {
             post.content,
             post.tags || this.container.settings.defaultTags,
             this.container.settings.postVisibility,
+            this.container.settings.categoriesPropertyName,
             this.container.settings.blogs,
             this.container.settings.selectedBlogID,
             this.container.networkClient,
@@ -248,6 +250,7 @@ export class ViewModelFactory implements ViewModelFactoryInterface {
             title,
             content,
             tags,
+            this.container.settings.categoriesPropertyName,
             this.container.settings.blogs,
             this.container.settings.selectedBlogID,
             frontmatterService,

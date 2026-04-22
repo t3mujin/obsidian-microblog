@@ -72,6 +72,7 @@ export class UpdatePostViewModel implements TagSuggestionDelegate, ImageServiceD
     private titleWrappedValue: string
     private content: string
     private tagsWrappedValue: string
+    private categoriesPropertyName: string
     private frontmatterService: FrontmatterServiceInterface
     private networkClient: NetworkClientInterface
     private networkRequestFactory: NetworkRequestFactoryInterface
@@ -87,6 +88,7 @@ export class UpdatePostViewModel implements TagSuggestionDelegate, ImageServiceD
         title: string,
         content: string,
         tags: string,
+        categoriesPropertyName: string,
         blogs: Record<string, string>,
         blogID: string,
         frontmatterService: FrontmatterServiceInterface,
@@ -99,6 +101,7 @@ export class UpdatePostViewModel implements TagSuggestionDelegate, ImageServiceD
         this.titleWrappedValue = title
         this.content = content
         this.tagsWrappedValue = tags
+        this.categoriesPropertyName = categoriesPropertyName
         this.blogs = blogs
         this.blogID = blogID
         this.isSubmitting = false
@@ -143,7 +146,7 @@ export class UpdatePostViewModel implements TagSuggestionDelegate, ImageServiceD
 
                 this.frontmatterService.save(this.title, 'title')
                 this.frontmatterService.save(this.url, 'url')
-                this.frontmatterService.save(tags, 'tags')
+                this.frontmatterService.save(tags, this.categoriesPropertyName)
 
                 this.delegate?.updateDidSucceed(result)
             }
