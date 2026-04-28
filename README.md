@@ -19,10 +19,11 @@ This community-maintained plugin is not affiliated with Micro.blog or Obsidian.
 - Categories and tags
   - Synchronize categories from Micro.blog for better tag suggestions.
   - Default tags and visibility for new posts.
+  - Allows configuration of the field used to hold blog categories, defaults to `tags`.
 - Multi-blog support
   - Choose a default blog and switch per publish.
 - Obsidian Properties (YAML frontmatter) support
-  - Uses `title`, `tags` when present; falls back to filename and defaults otherwise.
+  - Uses `title`, `tags` (or other defined in configuration) when present; falls back to filename and defaults otherwise.
   - Saves `url` after successful publishing for easy updates.
 
 ## Installation
