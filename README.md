@@ -34,16 +34,20 @@ This community-maintained plugin is not affiliated with Micro.blog or Obsidian.
 
 Generate an App Token on the [Micro.blog Account page](https://micro.blog/account/apps) and paste it in `Settings > Micro.publish`.
 
+## Setup
+
+It's possible to configure which property will hold the post's blog categories, using the **Categories Property Name** setting. By default, and for backward compatibility, it will use `tags`, but any other can be used (like `blog_tags`, `categories` or any other).
+
 ## Quick start
 
 1. Create or open a Markdown note.
 2. Optionally add Properties (or YAML) for:
    - `title`: overrides filename as the post title.
-   - `tags`: comma-separated list (e.g., `writing, book-notes`).
+   - `tags` (or the property field defined in Categories Property Name): line-separated list with the post categories.
 3. Use the Command Palette and run:
    - `Publish Post to Micro.blog` for posts, or
    - `Publish Page to Micro.blog` for pages.
-4. Review and adjust fields (title, tags, visibility, blog, and date for posts; navigation for pages).
+4. Review and adjust fields (title, categories, visibility, blog, and date for posts; navigation for pages).
 5. Confirm to publish. The note’s Properties will be updated with the post/page `url`.
 
 Tip: On desktop, use `Compose Micropost` (also available via a ribbon icon).
@@ -60,6 +64,7 @@ Tip: On desktop, use `Compose Micropost` (also available via a ribbon icon).
 - Blog
   - **Blog**: default blog for new posts and pages (with a refresh button).
 - Posts
+  - **Categories Property Name**: name of the property to be used to store the categories of a post. 
   - **Categories**: default tags for new posts (comma-separated).
   - **Visibility**: `Draft` or `Public` default for posts.
 - Pages
@@ -72,7 +77,7 @@ Tip: On desktop, use `Compose Micropost` (also available via a ribbon icon).
 ## Properties (YAML frontmatter)
 
 - **title**: used as the post/page title. Falls back to filename if missing.
-- **tags**: comma-separated tags for posts. Falls back to defaults if missing.
+- **tags** (or the property field defined in Categories Property Name): line-separated categories for posts. Falls back to defaults if missing.
 - **url**: added by Micro.publish after a successful publish; used to update existing posts/pages.
 
 Example:
