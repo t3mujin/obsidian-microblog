@@ -202,13 +202,16 @@ export class PublishPostViewModel implements TagSuggestionDelegate, ImageService
                     'Sending post to Micro.blog...'
                 )
 
+                const summary = this.frontmatterService.retrieveString('summary') ?? ''
+
                 const response = this.networkRequestFactory.makePublishPostRequest(
                     this.title,
                     processedContent,
                     tags,
                     this.visibility,
                     this.selectedBlogID,
-                    this.formattedScheduledDate()
+                    this.formattedScheduledDate(),
+                    summary
                 )
 
                 const result = await this.networkClient.run<PublishResponse>(

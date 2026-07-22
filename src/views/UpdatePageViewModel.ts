@@ -120,11 +120,15 @@ export class UpdatePageViewModel implements ImageServiceDelegate {
                     'Sending page to Micro.blog...'
                 )
 
+                const summary = this.frontmatterService.retrieveString('summary') ?? ''
+
                 const request = this.networkRequestFactory.makeUpdateRequest(
                     this.url,
                     this.selectedBlogID,
                     this.title,
-                    processedContent
+                    processedContent,
+                    undefined,
+                    summary
                 )
 
                 await this.networkClient.run<EmptyResponse>(

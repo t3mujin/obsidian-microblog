@@ -132,12 +132,15 @@ export class UpdatePostViewModel implements TagSuggestionDelegate, ImageServiceD
                     'Sending post to Micro.blog...'
                 )
 
+                const summary = this.frontmatterService.retrieveString('summary') ?? ''
+
                 const request = this.networkRequestFactory.makeUpdateRequest(
                     this.url,
                     this.blogID,
                     this.title,
                     processedContent,
-                    tags
+                    tags,
+                    summary
                 )
 
                 const result = await this.networkClient.run<PublishResponse>(

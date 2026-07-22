@@ -164,11 +164,14 @@ export class PublishPageViewModel implements ImageServiceDelegate {
                     'Sending page to Micro.blog...'
                 )
 
+                const summary = this.frontmatterService.retrieveString('summary') ?? ''
+
                 const response = this.networkRequestFactory.makePublishPageRequest(
                     this.title,
                     processedContent,
                     this.selectedBlogID,
-                    this.includeInNavigation
+                    this.includeInNavigation,
+                    summary
                 )
 
                 const result = await this.networkClient.run<PublishResponse>(
