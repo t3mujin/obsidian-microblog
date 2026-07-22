@@ -19,7 +19,7 @@ This community-maintained plugin is not affiliated with Micro.blog or Obsidian.
 - Categories and tags
   - Synchronize categories from Micro.blog for better tag suggestions.
   - Default tags and visibility for new posts.
-  - Allows configuration of the field used to hold blog categories, defaults to `tags`.
+  - Allows configuration of the field used to hold blog categories and summaries, defaults to `tags` and `summary` respectively.
 - Multi-blog support
   - Choose a default blog and switch per publish.
 - Obsidian Properties (YAML frontmatter) support
@@ -37,7 +37,7 @@ Generate an App Token on the [Micro.blog Account page](https://micro.blog/accoun
 
 ## Setup
 
-It's possible to configure which property will hold the post's blog categories, using the **Categories Property Name** setting. By default, and for backward compatibility, it will use `tags`, but any other can be used (like `blog_tags`, `categories` or any other).
+It's possible to configure which properties will hold the post's blog categories and summary, using the **Categories Property Name** and **Summary Property Name** settings. By default, and for backward compatibility, categories use `tags` and summary uses `summary`, but any other property names can be used.
 
 ## Quick start
 
@@ -66,6 +66,7 @@ Tip: On desktop, use `Compose Micropost` (also available via a ribbon icon).
   - **Blog**: default blog for new posts and pages (with a refresh button).
 - Posts
   - **Categories Property Name**: name of the property to be used to store the categories of a post. 
+  - **Summary Property Name**: name of the property to be used to store the summary of a post or page. 
   - **Categories**: default tags for new posts (comma-separated).
   - **Visibility**: `Draft` or `Public` default for posts.
 - Pages
@@ -79,6 +80,7 @@ Tip: On desktop, use `Compose Micropost` (also available via a ribbon icon).
 
 - **title**: used as the post/page title. Falls back to filename if missing.
 - **tags** (or the property field defined in Categories Property Name): line-separated categories for posts. Falls back to defaults if missing.
+- **summary** (or the property field defined in Summary Property Name): used as the Micropub summary for posts and pages when present.
 - **url**: added by Micro.publish after a successful publish; used to update existing posts/pages.
 
 Example:
@@ -87,6 +89,7 @@ Example:
 ---
 title: My New Post
 tags: writing, book-notes
+summary: A short summary for the post
 url: https://example.micro.blog/2024/09/10/my-new-post.html
 ---
 ```

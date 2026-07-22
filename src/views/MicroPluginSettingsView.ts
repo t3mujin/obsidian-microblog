@@ -190,6 +190,17 @@ export class MicroPluginSettingsView extends PluginSettingTab implements MicroPl
             )
 
         new Setting(containerEl)
+            .setName('Summary Property Name')
+            .setDesc('Property name, in the frontmatter, used to store the summary of a post or page.')
+            .addText(text => text
+                .setPlaceholder('summary')
+                .setValue(this.viewModel.summaryPropertyName)
+                .onChange(value => {
+                    this.viewModel.summaryPropertyName = value
+                })
+            )
+
+        new Setting(containerEl)
             .setName('Default Categories')
             .setDesc('List of categories assigned for new posts.')
             .addText(text => text
